@@ -1,3 +1,5 @@
+// Using Mocha as the testing framework
+
 import { renderComponent , expect } from '../test_helper';
 import App from '../../src/components/app';
 
