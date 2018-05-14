@@ -22,6 +22,9 @@ class Header extends React.Component {
             <Link to="/resources">Resources</Link>
           </li>
           <li className="nav-item">
+            <Link to="/users">Users</Link>
+          </li>
+          <li className="nav-item">
             {this.authButton()}
           </li>
         </ul>

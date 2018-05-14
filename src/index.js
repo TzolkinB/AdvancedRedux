@@ -9,9 +9,11 @@ import {
 import requireAuth from './components/require_authentication';
 import App         from './components/app';
 import Resources   from './components/resources';
+import UserList    from './components/user_list';
 import reducers    from './reducers';
+import Async       from './middlewares/async';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 render(
   <Provider store={createStoreWithMiddleware(reducers)}>
@@ -19,6 +21,7 @@ render(
       <App>
         <Switch>
           <Route path="/resources" component={requireAuth(Resources)} />
+          <Route path="/users" component={UserList} />
         </Switch>
       </App>
     </BrowserRouter>
