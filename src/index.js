@@ -6,9 +6,10 @@ import { createStore, applyMiddleware } from 'redux';
 import {
   Route, Switch } from 'react-router';
 
-import App from './components/app';
-import Resources from './components/resources';
-import reducers  from './reducers';
+import requireAuth from './components/require_authentication';
+import App         from './components/app';
+import Resources   from './components/resources';
+import reducers    from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
@@ -17,7 +18,7 @@ render(
     <BrowserRouter basename="/">
       <App>
         <Switch>
-          <Route path="/resources" component={Resources} />
+          <Route path="/resources" component={requireAuth(Resources)} />
         </Switch>
       </App>
     </BrowserRouter>
