@@ -1,4 +1,4 @@
-import fakeData from './../data/audit-intents.json'
+import fetch from 'isomorphic-fetch';
 
 const initialState = {
   all: []
@@ -31,6 +31,5 @@ export const fetchUsers = () => {
 }
 
 export const setUsers = () => {
-  console.log('here');
-  return { type: SET_USERS, payload: fakeData};
+  return { type: SET_USERS, payload: users};
 }

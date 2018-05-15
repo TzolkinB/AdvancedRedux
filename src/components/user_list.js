@@ -1,6 +1,5 @@
 import React from 'react';
 import usersContainer from './../containers/usersContainer';
-import countiesContainer from './../containers/countiesContainer';
 
 class UserList extends React.Component {
   constructor(props) {
@@ -9,8 +8,7 @@ class UserList extends React.Component {
 
   componentDidMount() {
     console.log('willmount', this.props);
-    const {handleUsers, handleSetCounties} = this.props;
-    handleSetCounties();
+    const {handleUsers} = this.props;
     handleUsers();
   }
 
@@ -28,7 +26,7 @@ class UserList extends React.Component {
     console.log(this.props);
     return (
       <div className="user-list">
-        <p>here</p>
+        <p>List goes here</p>
       </div>
     );
   }
