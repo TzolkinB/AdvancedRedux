@@ -9,7 +9,7 @@ import authenticationReducer from './authentication';
 
 const reducers = {
   users: userReducer,
-  authenticated: authenticationReducer,
+  authenticated: authenticationReducer
 };
 
 const store = createStore(

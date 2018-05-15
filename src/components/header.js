@@ -6,9 +6,8 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   authButton() {
-    console.log('props', this.props);
     if (this.props.authenticated) {
       return <button onClick={() => this.props.authenticate(false)}>Sign Out</button>;
     }
@@ -16,6 +15,8 @@ class Header extends React.Component {
     }
 
   render() {
+    console.log('props1', this.props);
+    console.log('state1', this.state);
     return(
       <nav className="navbar navbar-light">
         <ul className="nav navbar-nav">

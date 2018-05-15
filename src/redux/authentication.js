@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const CHANGE_AUTH = 'change_auth';
 
 function authenticationReducer(state = false, action) {
@@ -14,5 +12,6 @@ function authenticationReducer(state = false, action) {
 export default authenticationReducer;
 
 export function authenticate(isLoggedIn) {
+  console.log('isLoggedIn', isLoggedIn);
   return { type: CHANGE_AUTH, payload: isLoggedIn };
 }
