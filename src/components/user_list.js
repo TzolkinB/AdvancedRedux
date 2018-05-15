@@ -1,14 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import usersContainer from './../containers/usersContainer';
 
 class UserList extends React.Component {
-  componentWillMount() {
-    this.props.fetchUsers();
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log('willmount', this.props);
+    const {handleUsers} = this.props;
+    handleUsers();
   }
 
   renderUser(user) {
-    console.log(user);
     return(
       <div className="card card-block" key={user.id}>
         <h4 className="card-title">{user.name}</h4>
@@ -19,16 +23,15 @@ class UserList extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="user-list">
-        {this.props.users.map(this.renderUser)}
+        <p>List goes here</p>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return { users: state.users };
-}
 
-export default connect(mapStateToProps, actions)(UserList);
+export default UserList;
+        //{this.props.users.map(this.renderUser)}
