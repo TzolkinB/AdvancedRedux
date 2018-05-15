@@ -2,7 +2,6 @@ import React             from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render }        from 'react-dom';
 import { Provider }      from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 import {
   Route, Switch } from 'react-router';
 
@@ -10,13 +9,12 @@ import requireAuth from './components/require_authentication';
 import App         from './components/app';
 import Resources   from './components/resources';
 import UserList    from './components/user_list';
-import reducers    from './reducers';
 import Async       from './middlewares/async';
+import store from './redux/store';
 
-const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <BrowserRouter basename="/">
       <App>
         <Switch>

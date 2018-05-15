@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import usersContainer from './../containers/usersContainer';
 
 class UserList extends React.Component {
   componentWillMount() {
+    console.log(this.props);
     this.props.fetchUsers();
   }
 
@@ -27,8 +27,5 @@ class UserList extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { users: state.users };
-}
 
-export default connect(mapStateToProps, actions)(UserList);
+export default UserList;

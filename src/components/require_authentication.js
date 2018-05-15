@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import authenticationContainer from './../containers/authenticationContainer';
 
 export default function(ComposedComponent) {
   class Authentication extends React.Component {
@@ -20,9 +20,6 @@ export default function(ComposedComponent) {
     }
   }
 
-  function mapStateToProps(state) {
-    return { authenticated: state.authenticated };
-  }
 
-  return connect(mapStateToProps)(Authentication);
+  return Authentication;
 }
