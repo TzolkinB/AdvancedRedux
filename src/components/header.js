@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import authenticationContainer from './../containers/authenticationContainer';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
   authButton() {
     console.log('props', this.props);
     if (this.props.authenticated) {

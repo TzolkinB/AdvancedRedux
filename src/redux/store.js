@@ -1,5 +1,10 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import userReducer from './users';
+import thunk  from 'redux-thunk';
+import logger from 'redux-logger';
+import {
+  createStore, applyMiddleware, combineReducers
+} from 'redux';
+
+import userReducer           from './users';
 import authenticationReducer from './authentication';
 
 const reducers = {
@@ -8,7 +13,8 @@ const reducers = {
 };
 
 const store = createStore(
-  combineReducers(reducers)
-)
+  combineReducers(reducers),
+  applyMiddleware(thunk, logger)
+);
 
 export default store;

@@ -1,10 +1,9 @@
-import axios from 'axios';
 
-const FETCH_USERS = 'FETCH_USERS';
+const SET_USERS = 'SET_USERS';
 
 function userReducer(state = [], action) {
   switch (action.type) {
-    case FETCH_USERS:
+    case SET_USERS:
       return [ ...state, ...action.payload.data];
     default:
       return state;
@@ -14,7 +13,18 @@ function userReducer(state = [], action) {
 export default userReducer; 
 
 export const fetchUsers = () => {
-  const request = axios.get('https://jsonplaceholder.typicode.com/users');
+  console.log('here');
+  return dispatch => {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then( response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => 
+        console.log('json', json)
+      )
+  }
+}
 
-  return { type: FETCH_USERS, payload: request};
+export const setUsers = users => {
+  return { type: SET_USERS, payload: users};
 }

@@ -6,22 +6,21 @@ import {
   Route, Switch } from 'react-router';
 
 import requireAuth from './components/require_authentication';
-import App         from './components/app';
+import Header         from './components/header';
 import Resources   from './components/resources';
 import UserList    from './components/user_list';
-import Async       from './middlewares/async';
 import store from './redux/store';
 
 
 render(
   <Provider store={store}>
     <BrowserRouter basename="/">
-      <App>
+      <Header>
         <Switch>
           <Route path="/resources" component={requireAuth(Resources)} />
           <Route path="/users" component={UserList} />
         </Switch>
-      </App>
+      </Header>
     </BrowserRouter>
   </Provider>
   , document.querySelector('.container'));

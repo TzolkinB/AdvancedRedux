@@ -2,13 +2,17 @@ import React from 'react';
 import usersContainer from './../containers/usersContainer';
 
 class UserList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   componentWillMount() {
-    console.log(this.props);
-    this.props.fetchUsers();
+    const {fetchUsers} = this.props;
+    console.log('willmount', fetchUsers);
+    fetchUsers();
   }
 
   renderUser(user) {
-    console.log(user);
     return(
       <div className="card card-block" key={user.id}>
         <h4 className="card-title">{user.name}</h4>
