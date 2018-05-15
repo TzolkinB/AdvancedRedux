@@ -1,10 +1,15 @@
+import fakeData from './../data/audit-intents.json'
+
+const initialState = {
+  all: []
+};
 
 const SET_USERS = 'SET_USERS';
 
-function userReducer(state = [], action) {
+const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_USERS:
-      return [ ...state, ...action.payload.data];
+      return { ...state, all: action.payload};
     default:
       return state;
   }
@@ -25,6 +30,7 @@ export const fetchUsers = () => {
   }
 }
 
-export const setUsers = users => {
-  return { type: SET_USERS, payload: users};
+export const setUsers = () => {
+  console.log('here');
+  return { type: SET_USERS, payload: fakeData};
 }

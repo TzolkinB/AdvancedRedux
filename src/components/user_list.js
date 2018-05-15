@@ -1,15 +1,17 @@
 import React from 'react';
 import usersContainer from './../containers/usersContainer';
+import countiesContainer from './../containers/countiesContainer';
 
 class UserList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
-  componentWillMount() {
-    const {fetchUsers} = this.props;
-    console.log('willmount', fetchUsers);
-    fetchUsers();
+  componentDidMount() {
+    console.log('willmount', this.props);
+    const {handleUsers, handleSetCounties} = this.props;
+    handleSetCounties();
+    handleUsers();
   }
 
   renderUser(user) {
@@ -23,9 +25,10 @@ class UserList extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="user-list">
-        {this.props.users.map(this.renderUser)}
+        <p>here</p>
       </div>
     );
   }
@@ -33,3 +36,4 @@ class UserList extends React.Component {
 
 
 export default UserList;
+        //{this.props.users.map(this.renderUser)}

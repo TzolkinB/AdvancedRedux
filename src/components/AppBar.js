@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import authenticationContainer from './../containers/authenticationContainer';
+//import authenticationContainer from './../containers/authenticationContainer';
 
-class Header extends React.Component {
+class AppBar extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -15,8 +15,6 @@ class Header extends React.Component {
     }
 
   render() {
-    console.log('props1', this.props);
-    console.log('state1', this.state);
     return(
       <nav className="navbar navbar-light">
         <ul className="nav navbar-nav">
@@ -29,9 +27,6 @@ class Header extends React.Component {
           <li className="nav-item">
             <Link to="/users">Users</Link>
           </li>
-          <li className="nav-item">
-            {this.authButton()}
-          </li>
         </ul>
       </nav>
     );
@@ -39,4 +34,7 @@ class Header extends React.Component {
 }
 
 
-export default Header;
+export default AppBar;
+          //<li className="nav-item">
+          //  {this.authButton()}
+          //</li>

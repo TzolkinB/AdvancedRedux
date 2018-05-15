@@ -1,0 +1,500 @@
+[
+  {
+    "county": "Alger",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": "2 of 5"
+  },
+  {
+    "county": "Bay",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": "10 of 25"
+  },
+  {
+    "county": "Berrien",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Chippewa",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Crawford",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Dickinson",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Eaton",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Genesee",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Gogebic",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Gratiot",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Newaygo",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Oceana",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Otsego",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Presque Isle",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Sanilac",
+    "databaseYear": "2019",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Tuscola",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Washtenaw",
+    "databaseYear": "2019",
+    "databaseDue": "5/20/2018",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Baraga",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Houghton",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Ionia",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Iron",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Leelanau",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Livingston",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Mackinac",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Marquette",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Menominee",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Misaukee",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Muskegon",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Ontanagon",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Ottawa",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Schoolcraft",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Wayne",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Wexford",
+    "databaseYear": "2020",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Antrim",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Branch",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Cheboygan",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Clare",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Delta",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Iosco",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Jackson",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Kalkaska",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Kent",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Keweenaw",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Luce",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Macomb",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Mason",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Montcalm",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Oscoda",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Saginaw",
+    "databaseYear": "2021",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Arenac",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Benzie",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Calhoun",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Huron",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Isabella",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Lake",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Mecosta",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Monroe",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Oakland",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Ogemaw",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Osceola",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Roscommon",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Shiawassee",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "St. Clair",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "St. Joseph",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Van Buren",
+    "databaseYear": "2022",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Alcona",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Allegan",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Alpena",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Barry",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Cass",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Charlevoix",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Clinton",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Emmett",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Gladwin",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Grand Traverse",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Hillside",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Ingham",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Kalamazoo",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Lapeer",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Lenawee",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Manistee",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Midland",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  },
+  {
+    "county": "Montmorency",
+    "databaseYear": "2023",
+    "databaseDue": "",
+    "ftpDataReceived": ""
+  }
+]

@@ -6,10 +6,12 @@ import {
 
 import userReducer           from './users';
 import authenticationReducer from './authentication';
+import countyReducer from './counties';
 
 const reducers = {
   users: userReducer,
-  authenticated: authenticationReducer
+  authenticated: authenticationReducer,
+  counties: countyReducer
 };
 
 const store = createStore(
