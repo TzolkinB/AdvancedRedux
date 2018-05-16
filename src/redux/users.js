@@ -1,14 +1,15 @@
 import fetch from 'isomorphic-fetch';
+import tableData from './../data/audit-intents.json';
 
 const initialState = {
   all: []
 };
 
-const SET_USERS = 'SET_USERS';
+const SET_COUNTIES = 'SET_COUNTIES';
 
 const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET_USERS:
+    case SET_COUNTIES:
       return { ...state, all: action.payload};
     default:
       return state;
@@ -31,5 +32,5 @@ export const fetchUsers = () => {
 }
 
 export const setUsers = () => {
-  return { type: SET_USERS, payload: users};
+  return { type: SET_COUNTIES, payload: tableData};
 }
