@@ -16,6 +16,13 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      },
+      {
         test: /\.(png|jpg|gif|eot|woff|woff2|ttf)$/,
         use: [{ loader: 'file-loader?name=[name].[ext]' }],
       },
