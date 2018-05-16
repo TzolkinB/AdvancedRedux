@@ -11,6 +11,7 @@ import './css/style.css';
 
 import requireAuth from './components/require_authentication';
 import AppBar      from './components/AppBar';
+import Dashboard   from './components/Dashboard';
 import Resources   from './components/resources';
 import UserList    from './components/user_list';
 
@@ -21,8 +22,9 @@ const App = () => (
     </header>
     <main className="container-fluid main-vertical-padding">
       <Switch>
+        <Route exact path="/" component={Dashboard} />
         <Route path="/resources" component={requireAuth(Resources)} />
-        <Route path="/users" component={UserList} />
+        <Route path="/users" component={requireAuth(UserList)} />
       </Switch>
     </main>
   </div>

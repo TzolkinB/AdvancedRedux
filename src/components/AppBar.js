@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter }    from 'react-router';
 import { Link } from 'react-router-dom';
-//import authenticationContainer from './../containers/authenticationContainer';
+import authenticationContainer from './../containers/authenticationContainer';
 
 class AppBar extends React.Component {
   constructor(props) {
@@ -8,33 +9,41 @@ class AppBar extends React.Component {
   }
 
   authButton() {
-    if (this.props.authenticated) {
-      return <button onClick={() => this.props.authenticate(false)}>Sign Out</button>;
+    // change these names, too similar
+    const { authenticated, authenticate } = this.props;
+    if (authenticated) {
+      return <button onClick={() => authenticate(false)}>Sign Out</button>;
     }
-      return <button onClick={() => this.props.authenticate(true)}>Sign In</button>;
+      return <button onClick={() => authenticate(true)}>Sign In</button>;
     }
 
   render() {
     return(
-      <nav className="navbar navbar-light">
-        <ul className="nav navbar-nav">
-          <li className="nav-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/resources">Resources</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/users">Users</Link>
-          </li>
-        </ul>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="#">Navbar</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/resources">Resources</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/users">Users</Link>
+            </li>
+            <li className="nav-item">
+              {this.authButton()}
+            </li>
+          </ul>
+        </div>
       </nav>
     );
   }
 }
 
 
-export default AppBar;
-          //<li className="nav-item">
-          //  {this.authButton()}
-          //</li>
+export default authenticationContainer(withRouter(AppBar));
