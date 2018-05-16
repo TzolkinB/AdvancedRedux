@@ -33,7 +33,6 @@
     "webpack-dev-server": "^2.11.2"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
     "lodash": "^3.10.1",
     "react": "16.3.2",
     "react-dom": "16.3.2",
