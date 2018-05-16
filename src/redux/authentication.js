@@ -12,6 +12,5 @@ function authenticationReducer(state = false, action) {
 export default authenticationReducer;
 
 export function authenticate(isLoggedIn) {
-  console.log('isLoggedIn', isLoggedIn);
   return { type: CHANGE_AUTH, payload: isLoggedIn };
 }
