@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter }    from 'react-router';
 import usersContainer from './../containers/usersContainer';
 
 class UserList extends React.Component {
@@ -7,9 +8,8 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    console.log('willmount', this.props);
-    const {handleUsers} = this.props;
-    handleUsers();
+    const {handleGetUsers} = this.props;
+    handleGetUsers();
   }
 
   renderUser(user) {
@@ -23,15 +23,14 @@ class UserList extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log('props', this.props);
     return (
       <div className="user-list">
-        <p>List goes here</p>
+        {this.props.users.map(this.renderUser)}
       </div>
     );
   }
 }
 
 
-export default UserList;
-        //{this.props.users.map(this.renderUser)}
+export default usersContainer(withRouter(UserList));

@@ -6,11 +6,13 @@ import {
   Route, Switch, Redirect
 } from 'react-router';
 
+import store from './redux/store';
+import './css/style.css';
+
 import requireAuth from './components/require_authentication';
-import AppBar         from './components/AppBar';
+import AppBar      from './components/AppBar';
 import Resources   from './components/resources';
 import UserList    from './components/user_list';
-import store from './redux/store';
 
 const App = () => (
   <div className="container-fluid">
