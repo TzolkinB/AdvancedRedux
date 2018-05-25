@@ -1,34 +1,31 @@
-import React from 'react';
-import { withRouter }    from 'react-router';
+import React          from 'react';
+import { withRouter } from 'react-router';
+import EditUser       from './EditUser';
+import User           from './User';
 import usersContainer from './../containers/usersContainer';
 
 class UserList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      editingUser: false
+    }
   }
 
   componentDidMount() {
     const {handleGetUsers} = this.props;
     handleGetUsers();
-  }
-
-  renderUser(user) {
-    return(
-      <div className="card m-2" key={user.id}>
-        <div className="card-body">
-          <h4 className="card-title">{user.name}</h4>
-          <p className="card-text">{user.company.name}</p>
-          <button className="btn btn-primary">{user.email}</button>
-        </div>
-      </div>
-    );
-  }
+  };
 
   render() {
-    console.log('props', this.props);
+    const {editingUser} = this.state;
     return (
       <div className="user-list">
-        {this.props.users.map(this.renderUser)}
+        {this.props.users.map(user => (
+          <div className="card m-2" key={user.id}>
+            {user.editingUser ? <EditUser user={user} /> : <User user={user} editingUser={editingUser} />}
+          </div>
+        ))}
       </div>
     );
   }

@@ -26,7 +26,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Dashboard} />
         <Route path="/resources" component={requireAuth(Resources)} />
-        <Route path="/users" component={requireAuth(EditUser)} />
+        <Route path="/users" component={requireAuth(UserList)} />
       </Switch>
     </main>
     <Growl />

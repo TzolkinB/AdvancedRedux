@@ -5,11 +5,16 @@ import usersContainer from './../containers/usersContainer';
 class UserList extends React.Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     const {handleGetUsers} = this.props;
     handleGetUsers();
+  }
+
+  handleChange(e){
+    console.log('here')
   }
 
   renderUser(user) {
@@ -26,7 +31,7 @@ class UserList extends React.Component {
                 name={user.name}
                 value={user.name}
                 placeholder="Jane Doe"
-                onChange={e => handleChange(name, e.target.value)} />
+                onChange={this.handleChange} />
             </div>
             <div className="form-group">
               <label htmlFor="companyName">Company</label>
@@ -36,8 +41,7 @@ class UserList extends React.Component {
                 id="companyName"
                 name={user.company.name}
                 value={user.company.name}
-                placeholder="Company Name"
-                onChange={e => handleChange(name, e.target.value)} />
+                placeholder="Company Name" />
             </div>
           </form>
           <button className="btn btn-primary">{user.email}</button>
@@ -47,7 +51,6 @@ class UserList extends React.Component {
   }
 
   render() {
-    console.log('props', this.props);
     return (
       <div className="user-list">
         {this.props.users.map(this.renderUser)}
