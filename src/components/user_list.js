@@ -1,6 +1,5 @@
 import React          from 'react';
 import { withRouter } from 'react-router';
-import EditUser       from './EditUser';
 import User           from './User';
 import usersContainer from './../containers/usersContainer';
 
@@ -31,4 +30,3 @@ class UserList extends React.Component {
 
 
 export default usersContainer(withRouter(UserList));
-            //{user.editingUser ? <EditUser user={user} /> : <User user={user} 

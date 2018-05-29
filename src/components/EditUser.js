@@ -1,23 +1,22 @@
 import React from 'react';
-import { withRouter }    from 'react-router';
-import usersContainer from './../containers/usersContainer';
 
-class UserList extends React.Component {
+class EditUser extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    const {handleGetUsers} = this.props;
-    handleGetUsers();
-  }
+  //componentDidMount() {
+  //  const {handleGetUsers} = this.props;
+  //  handleGetUsers();
+  //}
 
   handleChange(e){
     console.log('here')
   }
 
-  renderUser(user) {
+  render() {
+    const {user} = this.props;
     return(
       <div className="card m-2" key={user.id}>
         <div className="card-body">
@@ -41,23 +40,17 @@ class UserList extends React.Component {
                 id="companyName"
                 name={user.company.name}
                 value={user.company.name}
-                placeholder="Company Name" />
+                placeholder="Company Name"
+                onChange={this.handleChange} />
             </div>
           </form>
-          <button className="btn btn-primary">{user.email}</button>
+          <span className="badge badge-primary p-3">{user.email}</span>
+          <button className="btn btn-success float-right">Update</button>
         </div>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div className="user-list">
-        {this.props.users.map(this.renderUser)}
       </div>
     );
   }
 }
 
 
-export default usersContainer(withRouter(UserList));
+export default EditUser;
