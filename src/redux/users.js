@@ -3,21 +3,17 @@ const initialState = {
 };
 
 const SET_USERS = 'SET_USERS';
-const SET_UPDATE = 'SET_UPDATE';
-const EDIT_USER = 'EDIT_USER';
 
-const userReducer = (state = initialState, action = {}) => {
+const usersReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_USERS:
       return { ...state, all: action.payload};
-    case EDIT_USER:
-      return { ...state, 
     default:
       return state;
   }
 }
 
-export default userReducer; 
+export default usersReducer; 
 
 export const fetchUsers = () => {
   return dispatch => {

@@ -7,9 +7,6 @@ import usersContainer from './../containers/usersContainer';
 class UserList extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      editingUser: false
-    }
   }
 
   componentDidMount() {
@@ -17,15 +14,16 @@ class UserList extends React.Component {
     handleGetUsers();
   };
 
+
   render() {
-    const {editingUser} = this.state;
+    const {users} = this.props;
     return (
       <div className="user-list">
-        {this.props.users.map(user => (
-          <div className="card m-2" key={user.id}>
-            {user.editingUser ? <EditUser user={user} /> : <User user={user} editingUser={editingUser} />}
-          </div>
-        ))}
+        {users.map(user => {
+          return(
+            <User user={user} />
+          );
+        })}
       </div>
     );
   }
@@ -33,3 +31,4 @@ class UserList extends React.Component {
 
 
 export default usersContainer(withRouter(UserList));
+            //{user.editingUser ? <EditUser user={user} /> : <User user={user} 

@@ -4,11 +4,13 @@ import {
   createStore, applyMiddleware, combineReducers
 } from 'redux';
 
-import userReducer           from './users';
+import usersReducer          from './users';
+import userReducer           from './activeUser';  
 import authenticationReducer from './authentication';
 
 const reducers = {
-  users: userReducer,
+  users: usersReducer,
+  user: userReducer,
   authenticated: authenticationReducer
 };
 
