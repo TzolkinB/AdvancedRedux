@@ -16,12 +16,12 @@ class UserList extends React.Component {
 
 
   render() {
-    const {users} = this.props;
+    const {users, handleUpdateUser} = this.props;
     return (
       <div className="user-list">
-        {users.map(user => {
+        {users.all.map(user => {
           return(
-            <User user={user} />
+            <User users={users} user={user} handleUpdateUser={handleUpdateUser} />
           );
         })}
       </div>

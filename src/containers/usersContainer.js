@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchUsers } from './../redux/users'
+import { fetchUsers, updateUser } from './../redux/users'
 
 const mapStateToProps = state => {
-  return { users: state.users.all };
+  console.log('state', state);
+  return { users: state.users};
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleGetUsers: () => dispatch(fetchUsers())
+    handleGetUsers: () => dispatch(fetchUsers()),
+    handleUpdateUser: id => dispatch(updateUser(id))
   };
 }
 

@@ -1,5 +1,11 @@
 const initialState = {
-  editing: false
+  user: {
+    id: null,
+    name: null,
+    email: null,
+    company: {},
+    editing: false
+  }
 };
 
 const EDIT_USER = 'EDIT_USER';
