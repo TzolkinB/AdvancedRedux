@@ -6,17 +6,18 @@ class EditUser extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  //componentDidMount() {
-  //  const {handleGetUsers} = this.props;
-  //  handleGetUsers();
-  //}
-
   handleChange(e){
     console.log('here')
   }
 
+  updateButton() {
+    this.setState({isEditing: false});
+    console.log('isEditing', isEditing);
+  }
+
   render() {
-    const {user} = this.props;
+    const {user, handleUpdateUser, isEditing} = this.props;
+    console.log('editing', isEditing);
     return(
       <div className="card m-2" key={user.id}>
         <div className="card-body">
@@ -45,7 +46,7 @@ class EditUser extends React.Component {
             </div>
           </form>
           <span className="badge badge-primary p-3">{user.email}</span>
-          <button className="btn btn-success float-right">Update</button>
+          <button className="btn btn-success float-right" onClick={this.updateButton}>Update</button>
         </div>
       </div>
     );

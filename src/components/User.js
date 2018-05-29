@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import EditUser       from './EditUser';
 import usersContainer from './../containers/usersContainer';
 
 class User extends React.Component {
@@ -10,11 +9,18 @@ class User extends React.Component {
       isEditing: false
     };
     this.toggleEdit = this.toggleEdit.bind(this);
-
   }
 
   toggleEdit() {
-    this.setState({isEditing: !this.state.isEditing})
+    this.setState({isEditing: true})
+  }
+
+  handleChange(e){
+    console.log('here')
+  }
+
+  updateButton() {
+    this.setState({isEditing: false})
   }
 
   render() {
@@ -22,7 +28,36 @@ class User extends React.Component {
     if(this.state.isEditing) {
       console.log(user.id, this.state.isEditing);
       return(
-        <EditUser user={user} handleUpdateUser={handleUpdateUser} isEditing={this.state.isEditing} />
+        <div className="card m-2" key={user.id}>
+          <div className="card-body">
+            <form>
+              <div className="form-group">
+                <label htmlFor="userName">Name</label>
+                <input 
+                  type="text"
+                  className="form-control"
+                  id="userName"
+                  name={user.name}
+                  value={user.name}
+                  placeholder="Jane Doe"
+                  onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="companyName">Company</label>
+                <input 
+                  type="text"
+                  className="form-control"
+                  id="companyName"
+                  name={user.company.name}
+                  value={user.company.name}
+                  placeholder="Company Name"
+                  onChange={this.handleChange} />
+              </div>
+            </form>
+            <span className="badge badge-primary p-3">{user.email}</span>
+            <button className="btn btn-success float-right" onClick={e => this.updateButton()}>Update</button>
+          </div>
+        </div>
       );
     }
     return(

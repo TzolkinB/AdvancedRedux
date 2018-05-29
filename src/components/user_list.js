@@ -20,7 +20,7 @@ class UserList extends React.Component {
       <div className="user-list">
         {users.all.map(user => {
           return(
-            <User users={users} user={user} handleUpdateUser={handleUpdateUser} />
+            <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
           );
         })}
       </div>
