@@ -1,10 +1,19 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const paths = {
+  DIST:   path.resolve(__dirname, 'dist'),	
+  PUB:    path.resolve(__dirname, 'public'),	
+  JS:     path.resolve(__dirname, 'src'),	
+  CSS:    path.resolve(__dirname, 'src/css')
+}
+
 module.exports = {
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  watch: true,
   entry: ['./src/index.js'],
   output: {
-    path: __dirname + '/dist',
+    path: paths.DIST,
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -13,6 +22,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        include: paths.SRC,
         loader: 'babel-loader',
       },
       {
@@ -24,10 +34,12 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|eot|woff|woff2|ttf)$/,
+        include: path.PUB,
         use: [{ loader: 'file-loader?name=[name].[ext]' }],
       },
       {
         test: /\.html$/,
+        include: paths.PUB,
         use: [{
           loader: 'file-loader',
           options: {

@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import { authenticate } from './../redux/authentication';
+import { editUser } from './../redux/activeUser'
 
 const mapStateToProps = state => {
-  return { authenticated: state.authenticated };
+  return { ...state.user };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    authenticate: isLoggedIn => dispatch(authenticate(isLoggedIn))
+    handleEditUser: id => dispatch(editUser(id))
   };
 }
 

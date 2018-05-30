@@ -11,9 +11,11 @@ import './css/style.css';
 
 import requireAuth from './components/require_authentication';
 import AppBar      from './components/AppBar';
+import Growl       from './components/Growl';
 import Dashboard   from './components/Dashboard';
 import Resources   from './components/resources';
 import UserList    from './components/user_list';
+import EditUser    from './components/EditUser';
 
 const App = () => (
   <div className="container-fluid">
@@ -27,6 +29,7 @@ const App = () => (
         <Route path="/users" component={requireAuth(UserList)} />
       </Switch>
     </main>
+    <Growl />
   </div>
 )
 
