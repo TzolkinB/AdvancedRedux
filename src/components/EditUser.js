@@ -10,14 +10,14 @@ class EditUser extends React.Component {
     console.log('here')
   }
 
-  updateButton() {
+  cancelButton() {
     this.setState({isEditing: false});
-    console.log('isEditing', isEditing);
   }
 
   render() {
-    const {user, handleUpdateUser, isEditing} = this.props;
-    console.log('editing', isEditing);
+    const {
+      user, handleUpdateUser, isEditing
+    } = this.props;
     return(
       <div className="card m-2" key={user.id}>
         <div className="card-body">
@@ -46,7 +46,7 @@ class EditUser extends React.Component {
             </div>
           </form>
           <span className="badge badge-primary p-3">{user.email}</span>
-          <button className="btn btn-success float-right" onClick={this.updateButton}>Update</button>
+          <button className="btn btn-danger float-right" onClick={this.cancelButton}>Cancel</button>
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editUser } from './../redux/activeUser'
+import { editUser, addUser } from './../redux/activeUser'
 
 const mapStateToProps = state => {
   return { ...state.user };
@@ -7,7 +7,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleEditUser: id => dispatch(editUser(id))
+    handleEditUser: id => dispatch(editUser(id)),
+    handleAddUser: user => dispatch(addUser(user))
   };
 }
 
