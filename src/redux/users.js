@@ -22,15 +22,18 @@ const usersReducer = (state = initialState, action = {}) => {
     case EDIT_USER:
       return state.map( user => user.id === action.id ? {...user, editing:!user.editing}:user);
     case ADD_USER:
-      return () => {
-        const newState = {
-          ...state,
-          user: {
-          ...action.payload
-          }
-        };
-        return {...newState};
-      };
+      //return () => {
+      //  const newState = {
+      //    ...state,
+      //    user: {
+      //    ...action.payload
+      //    }
+      //  };
+      //  return {...newState};
+      //};
+      return [ ...state, {
+        ...action.payload
+      }];
     case UPDATE_USER:
       return state.map(user => {
         if(user.id === action.payload.id) {
