@@ -20,9 +20,11 @@ class UserList extends React.Component {
 
   render() {
     console.log('state', this.state);
+    console.log('handle', this.props);
     const {users, handleUpdateUser, handleAddUser} = this.props;
 
-    const handleSave = () => {
+    const handleSave = e => {
+      e.preventDefault();
       handleAddUser(this.state);
       $('#addUserModal').modal('hide')
     };

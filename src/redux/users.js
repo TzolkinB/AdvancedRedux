@@ -22,6 +22,8 @@ const usersReducer = (state = initialState, action = {}) => {
     case EDIT_USER:
       return state.map( user => user.id === action.id ? {...user, editing:!user.editing}:user);
     case ADD_USER:
+        console.log('user', state);
+      console.log('payload', action.payload);
       //return () => {
       //  const newState = {
       //    ...state,
@@ -31,9 +33,7 @@ const usersReducer = (state = initialState, action = {}) => {
       //  };
       //  return {...newState};
       //};
-      return [ ...state, {
-        ...action.payload
-      }];
+      return {...state, ...action.payload};
     case UPDATE_USER:
       return state.map(user => {
         if(user.id === action.payload.id) {
@@ -54,9 +54,9 @@ export const fetchUsers = () => {
       .then( response => response.json(),
         error => console.log('An error occurred.', error)
       )
-      .then(json => { 
-        dispatch(setUsers(json));
-        return json;
+      .then(users => { 
+        dispatch(setUsers(users));
+        return users;
       })
   }
 }
