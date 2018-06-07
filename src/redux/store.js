@@ -5,12 +5,10 @@ import {
 } from 'redux';
 
 import usersReducer          from './users';
-import userReducer           from './activeUser';  
 import authenticationReducer from './authentication';
 
 const reducers = {
   users: usersReducer,
-  user: userReducer,
   authenticated: authenticationReducer
 };
 
