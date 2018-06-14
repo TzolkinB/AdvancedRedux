@@ -19,8 +19,6 @@ class UserList extends React.Component {
 
 
   render() {
-    console.log('state', this.state);
-    console.log('handle', this.props);
     const {users, handleUpdateUser, handleAddUser} = this.props;
 
     const handleSave = e => {
@@ -37,7 +35,7 @@ class UserList extends React.Component {
           </button>
         </div>
         <div className="user-list">
-          {users.all.map(user => {
+          {users.users.map(user => {
             return(
               <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
             );
@@ -64,6 +62,7 @@ class UserList extends React.Component {
                           placeholder="Jane Doe"
                           onChange={ e => this.handleChange('name', e)} />
                       </div>
+      {/*
                       <div className="form-group">
                         <label htmlFor="companyName">Company</label>
                         <input 
@@ -74,6 +73,7 @@ class UserList extends React.Component {
                           placeholder="Company Name"
                           onChange={e => this.handleChange('company', e)} />
                       </div>
+                      */}
                       <div className="form-group">
                         <label htmlFor="companyName">Email</label>
                         <input 

@@ -48,8 +48,8 @@ class User extends React.Component {
                   type="text"
                   className="form-control"
                   id="companyName"
-                  name={user.company.name}
-                  value={user.company.name}
+                  name={user.company}
+                  value={user.company}
                   placeholder="Company Name"
                   onChange={this.handleChange} />
               </div>
@@ -64,7 +64,6 @@ class User extends React.Component {
       <div className="card m-2" key={user.id}>
         <div className="card-body" key={user.id}>
           <h4 className="card-title">{user.name}</h4>
-          <p className="card-text">{user.company.name}</p>
           <span className="badge badge-primary p-3">{user.email}</span>
           <button className="btn btn-info float-right" onClick={e => this.toggleEdit()}>Edit</button>
         </div>
