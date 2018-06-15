@@ -16,6 +16,7 @@ import Dashboard   from './components/Dashboard';
 import Resources   from './components/resources';
 import UserList    from './components/UserList';
 import EditUser    from './components/EditUser';
+import Footer      from './components/Footer';
 
 const App = () => (
   <div className="container-fluid">
@@ -30,6 +31,7 @@ const App = () => (
       </Switch>
     </main>
     <Growl />
+    <Footer />
   </div>
 )
 

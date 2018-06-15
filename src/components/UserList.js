@@ -36,8 +36,8 @@ class UserList extends React.Component {
 
     return (
       <div>
-        <div className="row d-flex justify-content-end">
-          <button type="button" className="btn btn-primary float-right px-5" data-toggle="modal" data-target="#addUserModal">
+        <div className="row d-flex justify-content-end my-3 mr-4">
+          <button type="button" className="btn btn-raised btn-success btn-lg px-5" data-toggle="modal" data-target="#addUserModal">
             Add User
           </button>
         </div>
@@ -93,7 +93,7 @@ class UserList extends React.Component {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-success" onClick={handleSave}>Save</button>
+                <button type="button" className="btn btn-raised btn-success" onClick={handleSave}>Save</button>
               </div>
             </div>
           </div>
