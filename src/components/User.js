@@ -64,6 +64,7 @@ class User extends React.Component {
       <div className="card m-2" key={user.id}>
         <div className="card-body" key={user.id}>
           <h4 className="card-title">{user.name}</h4>
+          <p className="card-title">{user.company.name || 'blank'}</p>
           <span className="badge badge-primary p-3">{user.email}</span>
           <button className="btn btn-info float-right" onClick={e => this.toggleEdit()}>Edit</button>
         </div>

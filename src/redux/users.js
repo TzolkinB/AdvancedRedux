@@ -3,15 +3,19 @@ const initialState = {
   user: {
     name: '',
     email: '',
+    company: {
+      name: ''
+    },
     editing: false
   }
 };
 
-const SET_USERS = 'SET_USERS';
+const SET_USERS   = 'SET_USERS';
 const UPDATE_USER = 'UPDATE_USER';
-const ADD_USER  = 'ADD_USER';
-const EDIT_USER = 'EDIT_USER';
+const ADD_USER    = 'ADD_USER';
+const EDIT_USER   = 'EDIT_USER';
 const DELETE_USER = 'DELETE_USER';
+const CLEAR_USER  = 'CLEAR_USER';
 
 const usersReducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -22,6 +26,8 @@ const usersReducer = (state = initialState, action = {}) => {
     case ADD_USER:
       // state.users is array of all users and action.payload is new user object
       return { ...state, users: [...state.users, action.payload]};
+    case CLEAR_USER:
+      return { ...state, user: initialState}
     case UPDATE_USER:
       return state.map(user => {
         if(user.id === action.payload.id) {
@@ -48,6 +54,12 @@ export const fetchUsers = () => {
   }
 }
 
+export const createUser = user => {
+  return (dispatch) => {
+    dispatch(addUser(user));
+  }
+}
+
 export const setUsers = users => {
   return {type: SET_USERS, payload: users};
 }
@@ -58,6 +70,10 @@ export const updateUser = user => {
 
 export const addUser = user => {
   return { type: ADD_USER, payload: user};
+}
+
+export const clearUser = () => {
+  return { type: CLEAR_USER};
 }
 
 export const editUser = id => {

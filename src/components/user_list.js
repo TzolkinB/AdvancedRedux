@@ -14,17 +14,25 @@ class UserList extends React.Component {
   };
 
   handleChange(key, e) {
-    this.setState({ [key]: e.target.value})
+    if(typeof key === 'string') {
+      return this.setState({ [key]: e.target.value});
+    }
+    console.log('an object', key);
+    return this.setState({ [key]: e.target.value });
   };
 
 
   render() {
-    const {users, handleUpdateUser, handleAddUser} = this.props;
+    const {
+      users: {users}, handleUpdateUser, handleAddUser, clearUser,
+      company
+    } = this.props;
 
     const handleSave = e => {
       e.preventDefault();
       handleAddUser(this.state);
       $('#addUserModal').modal('hide');
+      clearUser();
     };
 
     return (
@@ -35,7 +43,7 @@ class UserList extends React.Component {
           </button>
         </div>
         <div className="user-list">
-          {users.users.map(user => {
+          {users.map(user => {
             return(
               <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
             );
@@ -51,40 +59,38 @@ class UserList extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                    <form>
-                      <div className="form-group">
-                        <label htmlFor="userName">Name</label>
-                        <input 
-                          type="text"
-                          className="form-control"
-                          id="userName"
-                          value={this.props.name}
-                          placeholder="Jane Doe"
-                          onChange={ e => this.handleChange('name', e)} />
-                      </div>
-      {/*
-                      <div className="form-group">
-                        <label htmlFor="companyName">Company</label>
-                        <input 
-                          type="text"
-                          className="form-control"
-                          id="companyName"
-                          value={this.props.company}
-                          placeholder="Company Name"
-                          onChange={e => this.handleChange('company', e)} />
-                      </div>
-                      */}
-                      <div className="form-group">
-                        <label htmlFor="companyName">Email</label>
-                        <input 
-                          type="text"
-                          className="form-control"
-                          id="email"
-                          value={this.props.email}
-                          placeholder="example@example.com"
-                          onChange={e => this.handleChange('email', e)} />
-                      </div>
-                    </form>
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="userName">Name</label>
+                    <input 
+                      type="text"
+                      className="form-control"
+                      id="userName"
+                      value={this.props.name}
+                      placeholder="Jane Doe"
+                      onChange={ e => this.handleChange('name', e)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="companyName">Company</label>
+                    <input 
+                      type="text"
+                      className="form-control"
+                      id="companyName"
+                      value={company}
+                      placeholder="Company Name"
+                      onChange={e => this.handleChange({company: {name}}, e)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="companyName">Email</label>
+                    <input 
+                      type="text"
+                      className="form-control"
+                      id="email"
+                      value={this.props.email}
+                      placeholder="example@example.com"
+                      onChange={e => this.handleChange('email', e)} />
+                  </div>
+                </form>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
