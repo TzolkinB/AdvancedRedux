@@ -14,18 +14,19 @@ class UserList extends React.Component {
   };
 
   handleChange(key, e, type) {
+    //There must be a better way than passing a string to check against
     if(type != 'obj') {
       return this.setState({ [key]: e.target.value});
     }
+    //Find out how to not hardcode "company"
     console.log('an object', key);
     return this.setState({ company: {[key]: e.target.value }});
   };
 
-
   render() {
     const {
-      users: {users}, handleUpdateUser, handleAddUser, clearUser,
-      company
+      users: {users}, handleUpdateUser, handleAddUser,
+      clearUser, company
     } = this.props;
 
     const handleSave = e => {
@@ -37,7 +38,11 @@ class UserList extends React.Component {
     return (
       <div>
         <div className="row d-flex justify-content-end my-3 mr-4">
-          <button type="button" className="btn btn-raised btn-success btn-lg px-5" data-toggle="modal" data-target="#addUserModal">
+          <button 
+            type="button"
+            className="btn btn-raised btn-success btn-lg px-5"
+            data-toggle="modal" 
+            data-target="#addUserModal">
             Add User
           </button>
         </div>

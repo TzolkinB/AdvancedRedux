@@ -11,23 +11,32 @@ const initialState = {
 };
 
 const SET_USERS   = 'SET_USERS';
-const UPDATE_USER = 'UPDATE_USER';
+const UPDATE_USER = 'UPDATE_USER'; //WIP
 const ADD_USER    = 'ADD_USER';
-const EDIT_USER   = 'EDIT_USER';
+const EDIT_USER   = 'EDIT_USER'; //toggles state of edit
 const DELETE_USER = 'DELETE_USER';
-const CLEAR_USER  = 'CLEAR_USER';
+const CLEAR_USER  = 'CLEAR_USER';//WIP to clear Add User form inputs after "ADD_USER"
 
 const usersReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_USERS:
-      return { ...state, users: action.payload};
+      return { 
+        ...state, 
+        users: action.payload
+      };
     case EDIT_USER:
-      return state.map( user => user.id === action.id ? {...user, editing:!user.editing}:user);
+      return state.map( user => user.id === action.id ? user: {...user, editing:!user.editing});
     case ADD_USER:
       // state.users is array of all users and action.payload is new user object
-      return { ...state, users: [...state.users, action.payload]};
+      return { 
+        ...state, 
+        users: [...state.users, action.payload]
+      };
     case CLEAR_USER:
-      return { ...state, user: initialState}
+      return { 
+        ...state, 
+        user: initialState
+      };
     case UPDATE_USER:
       return state.map(user => {
         if(user.id === action.payload.id) {
@@ -55,6 +64,7 @@ export const fetchUsers = () => {
 }
 
 export const createUser = user => {
+  //Could just use "addUser" in component but this works too
   return (dispatch) => {
     dispatch(addUser(user));
   }
@@ -73,7 +83,7 @@ export const addUser = user => {
 }
 
 export const clearUser = () => {
-  return { type: CLEAR_USER};
+  return { type: CLEAR_USER };
 }
 
 export const editUser = id => {

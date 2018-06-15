@@ -1,6 +1,6 @@
-import React             from 'react';
-import { render }        from 'react-dom';
-import { Provider }      from 'react-redux';
+import React        from 'react';
+import { render }   from 'react-dom';
+import { Provider } from 'react-redux';
 import {
   BrowserRouter, Route, Switch,
   Redirect
@@ -26,7 +26,7 @@ const App = () => (
     <main className="container-fluid main-vertical-padding">
       <Switch>
         <Route exact path="/" component={Dashboard} />
-        <Route path="/resources" component={requireAuth(Resources)} />
+        <Route path="/resources" component={Resources} />
         <Route path="/users" component={requireAuth(UserList)} />
       </Switch>
     </main>
