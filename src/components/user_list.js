@@ -24,7 +24,7 @@ class UserList extends React.Component {
     const handleSave = e => {
       e.preventDefault();
       handleAddUser(this.state);
-      $('#addUserModal').modal('hide')
+      $('#addUserModal').modal('hide');
     };
 
     return (
