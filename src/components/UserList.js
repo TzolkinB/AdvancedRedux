@@ -13,12 +13,12 @@ class UserList extends React.Component {
     handleGetUsers();
   };
 
-  handleChange(key, e) {
-    if(typeof key === 'string') {
+  handleChange(key, e, type) {
+    if(type != 'obj') {
       return this.setState({ [key]: e.target.value});
     }
     console.log('an object', key);
-    return this.setState({ [key]: e.target.value });
+    return this.setState({ company: {[key]: e.target.value }});
   };
 
 
@@ -32,7 +32,6 @@ class UserList extends React.Component {
       e.preventDefault();
       handleAddUser(this.state);
       $('#addUserModal').modal('hide');
-      clearUser();
     };
 
     return (
@@ -78,7 +77,7 @@ class UserList extends React.Component {
                       id="companyName"
                       value={company}
                       placeholder="Company Name"
-                      onChange={e => this.handleChange({company: {name}}, e)} />
+                      onChange={e => this.handleChange('name', e, 'obj')} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Email</label>

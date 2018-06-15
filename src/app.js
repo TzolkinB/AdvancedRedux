@@ -1,20 +1,20 @@
 import React             from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { render }        from 'react-dom';
 import { Provider }      from 'react-redux';
 import {
-  Route, Switch, Redirect
-} from 'react-router';
+  BrowserRouter, Route, Switch,
+  Redirect
+} from 'react-router-dom';
 
 import store from './redux/store';
-import './css/style.css';
+import 'CSS/style.css';
 
 import requireAuth from './components/require_authentication';
 import AppBar      from './components/AppBar';
 import Growl       from './components/Growl';
 import Dashboard   from './components/Dashboard';
 import Resources   from './components/resources';
-import UserList    from './components/user_list';
+import UserList    from './components/UserList';
 import EditUser    from './components/EditUser';
 
 const App = () => (
@@ -39,4 +39,4 @@ render(
       <App />
     </BrowserRouter>
   </Provider>
-  , document.getElementById('container'));
+  , document.getElementById('redux-app'));

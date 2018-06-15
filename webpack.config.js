@@ -11,18 +11,28 @@ const paths = {
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   watch: true,
-  entry: ['./src/index.js'],
+  entry: './src/app.js',
   output: {
     path: paths.DIST,
     publicPath: '/',
     filename: 'bundle.js'
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './public',
+    port: 8080,
+    compress: true,
+    stats: 'errors-only',
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        include: paths.SRC,
         loader: 'babel-loader',
       },
       {
@@ -49,18 +59,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [],
+  devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './public',
-    port: 8080,
-    compress: true,
-    stats: 'errors-only',
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000
+    extensions: ['.js', '.jsx'],
+    alias: {
+      PUB: paths.PUB,
+      CSS: paths.CSS
     }
-  }
+  },
 };

@@ -26,7 +26,6 @@ class User extends React.Component {
   render() {
     const {user, handleUpdateUser} = this.props;
     if(this.state.isEditing) {
-      console.log(user.id, this.state.isEditing);
       return(
         <div className="card m-2" key={user.id}>
           <div className="card-body">
