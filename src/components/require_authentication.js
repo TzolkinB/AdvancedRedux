@@ -1,4 +1,4 @@
-import React from 'react';
+import React             from 'react';
 import { withRouter }    from 'react-router';
 import authenticationContainer from './../containers/authenticationContainer';
 
@@ -6,6 +6,7 @@ export default function(ComposedComponent) {
   class Authentication extends React.Component {
     componentWillMount() {
       if (!this.props.authenticated) {
+        alert('You must "sign in" to view this page.');
         this.props.history.push('/');
       }
     }
@@ -20,7 +21,6 @@ export default function(ComposedComponent) {
       return <ComposedComponent {...this.props} />
     }
   }
-
 
   return authenticationContainer(withRouter(Authentication));
 }

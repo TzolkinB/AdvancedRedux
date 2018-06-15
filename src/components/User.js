@@ -1,4 +1,4 @@
-import React from 'react';
+import React          from 'react';
 import { withRouter } from 'react-router';
 import usersContainer from './../containers/usersContainer';
 
@@ -26,7 +26,6 @@ class User extends React.Component {
   render() {
     const {user, handleUpdateUser} = this.props;
     if(this.state.isEditing) {
-      console.log(user.id, this.state.isEditing);
       return(
         <div className="card m-2" key={user.id}>
           <div className="card-body">
@@ -48,14 +47,24 @@ class User extends React.Component {
                   type="text"
                   className="form-control"
                   id="companyName"
-                  name={user.company.name}
+                  name={user.company}
                   value={user.company.name}
                   placeholder="Company Name"
                   onChange={this.handleChange} />
               </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input 
+                  type="text"
+                  className="form-control"
+                  id="email"
+                  name={user.email}
+                  value={user.email}
+                  placeholder="Email"
+                  onChange={this.handleChange} />
+              </div>
             </form>
-            <span className="badge badge-primary p-3">{user.email}</span>
-            <button className="btn btn-success float-right" onClick={e => this.updateButton()}>Update</button>
+            <button className="btn btn-info btn-raised float-right" onClick={e => this.updateButton()}>Update</button>
           </div>
         </div>
       );
@@ -63,10 +72,14 @@ class User extends React.Component {
     return(
       <div className="card m-2" key={user.id}>
         <div className="card-body" key={user.id}>
-          <h4 className="card-title">{user.name}</h4>
-          <p className="card-text">{user.company.name}</p>
-          <span className="badge badge-primary p-3">{user.email}</span>
-          <button className="btn btn-info float-right" onClick={e => this.toggleEdit()}>Edit</button>
+          <h4 className="card-title text-warning font-weight-bold">{user.name}</h4>
+          <p>Company:&nbsp;
+            <span className="text-secondary">{user.company.name || 'blank'}</span>
+          </p>
+          <p>Email:&nbsp;
+            <span className="text-secondary">{user.email}</span>
+          </p>
+          <button className="btn btn-raised btn-info float-right" onClick={e => this.toggleEdit()}>Edit</button>
         </div>
       </div>
     );

@@ -18,6 +18,7 @@ class EditUser extends React.Component {
     const {
       user, handleUpdateUser, isEditing
     } = this.props;
+
     return(
       <div className="card m-2" key={user.id}>
         <div className="card-body">
@@ -52,6 +53,5 @@ class EditUser extends React.Component {
     );
   }
 }
-
 
 export default EditUser;

@@ -1,21 +1,22 @@
-import React             from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { render }        from 'react-dom';
-import { Provider }      from 'react-redux';
+import React        from 'react';
+import { render }   from 'react-dom';
+import { Provider } from 'react-redux';
 import {
-  Route, Switch, Redirect
-} from 'react-router';
+  BrowserRouter, Route, Switch,
+  Redirect
+} from 'react-router-dom';
 
 import store from './redux/store';
-import './css/style.css';
+import 'CSS/style.css';
 
 import requireAuth from './components/require_authentication';
 import AppBar      from './components/AppBar';
 import Growl       from './components/Growl';
 import Dashboard   from './components/Dashboard';
 import Resources   from './components/resources';
-import UserList    from './components/user_list';
+import UserList    from './components/UserList';
 import EditUser    from './components/EditUser';
+import Footer      from './components/Footer';
 
 const App = () => (
   <div className="container-fluid">
@@ -25,11 +26,12 @@ const App = () => (
     <main className="container-fluid main-vertical-padding">
       <Switch>
         <Route exact path="/" component={Dashboard} />
-        <Route path="/resources" component={requireAuth(Resources)} />
+        <Route path="/resources" component={Resources} />
         <Route path="/users" component={requireAuth(UserList)} />
       </Switch>
     </main>
     <Growl />
+    <Footer />
   </div>
 )
 
@@ -39,4 +41,4 @@ render(
       <App />
     </BrowserRouter>
   </Provider>
-  , document.getElementById('container'));
+  , document.getElementById('redux-app'));
