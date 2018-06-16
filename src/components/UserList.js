@@ -1,5 +1,6 @@
 import React          from 'react';
 import { withRouter } from 'react-router';
+import { merge }      from 'lodash';
 import User           from './User';
 import usersContainer from './../containers/usersContainer';
 
@@ -22,6 +23,29 @@ class UserList extends React.Component {
     console.log('an object', key);
     return this.setState({ company: {[key]: e.target.value }});
   };
+
+  createDeepStateSlice(keys, value) {
+    return keys.slice().reverse().reduce((acc, key, i) => {
+      return i === 0 ? { [key]: value } : { [key]: acc }
+    }, {});
+  }
+
+  handleChangeFactory(keys) {
+    const handleChange = (e) => {
+      const value = e.target.value;
+
+      if (Array.isArray(keys)) {
+        const slice = this.createDeepStateSlice(keys, value);
+        this.setState(merge({}, this.state, slice));
+      } else {
+        this.setState({ [keys]: value });
+      }
+    }
+
+    console.log(this.state);
+
+    return handleChange.bind(this);
+  }
 
   render() {
     const {
@@ -72,7 +96,7 @@ class UserList extends React.Component {
                       id="userName"
                       value={this.props.name}
                       placeholder="Jane Doe"
-                      onChange={ e => this.handleChange('name', e)} />
+                      onChange={this.handleChangeFactory('name')} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Company</label>
@@ -82,7 +106,7 @@ class UserList extends React.Component {
                       id="companyName"
                       value={company}
                       placeholder="Company Name"
-                      onChange={e => this.handleChange('name', e, 'obj')} />
+                      onChange={this.handleChangeFactory(['company', 'name'])} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Email</label>
