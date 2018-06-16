@@ -40,9 +40,8 @@ class UserList extends React.Component {
       } else {
         this.setState({ [keys]: value });
       }
+      console.log(this.state); // for double checking with :eyes:
     }
-
-    console.log(this.state);
 
     return handleChange.bind(this);
   }
@@ -58,6 +57,9 @@ class UserList extends React.Component {
       handleAddUser(this.state);
       $('#addUserModal').modal('hide');
     };
+
+    const handleNameChange = this.handleChangeFactory('name');
+    const handleCompanyChange = this.handleChangeFactory(['company', 'name']);
 
     return (
       <div>
@@ -96,7 +98,7 @@ class UserList extends React.Component {
                       id="userName"
                       value={this.props.name}
                       placeholder="Jane Doe"
-                      onChange={this.handleChangeFactory('name')} />
+                      onChange={handleNameChange} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Company</label>
@@ -106,7 +108,7 @@ class UserList extends React.Component {
                       id="companyName"
                       value={company}
                       placeholder="Company Name"
-                      onChange={this.handleChangeFactory(['company', 'name'])} />
+                      onChange={handleCompanyChange} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Email</label>
