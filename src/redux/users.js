@@ -32,6 +32,9 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state, 
         users: [...state.users, action.payload]
       };
+    case DELETE_USER:
+      console.log('action', action.id, user.id);
+      //return state.filter(id === action.id
     case CLEAR_USER:
       return { 
         ...state, 
@@ -79,13 +82,17 @@ export const updateUser = user => {
 }
 
 export const addUser = user => {
-  return { type: ADD_USER, payload: user};
+  return {type: ADD_USER, payload: user};
+}
+
+export const deleteUser = user => {
+  return {type: DELETE_USER, payload: user};
 }
 
 export const clearUser = () => {
-  return { type: CLEAR_USER };
+  return {type: CLEAR_USER };
 }
 
 export const editUser = id => {
-  return { type: EDIT_USER, payload: id};
+  return {type: EDIT_USER, payload: id};
 }
