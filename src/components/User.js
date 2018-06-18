@@ -74,7 +74,7 @@ class User extends React.Component {
         <div className="card-body" key={user.id}>
           <h4 className="card-title text-warning font-weight-bold">{user.name}</h4>
           <p>Company:&nbsp;
-            <span className="text-secondary">{user.company.name || 'blank'}</span>
+            <span className="text-secondary">{user.company ? user.company.name : ''}</span>
           </p>
           <p>Email:&nbsp;
             <span className="text-secondary">{user.email}</span>

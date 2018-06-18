@@ -1,6 +1,6 @@
 import React          from 'react';
 import { withRouter } from 'react-router';
-import { merge }      from 'lodash';
+import merge          from 'lodash.merge';
 import User           from './User';
 import usersContainer from './../containers/usersContainer';
 
@@ -14,17 +14,19 @@ class UserList extends React.Component {
     handleGetUsers();
   };
 
-  handleChange(key, e, type) {
-    //There must be a better way than passing a string to check against
-    if(type != 'obj') {
-      return this.setState({ [key]: e.target.value});
-    }
-    //Find out how to not hardcode "company"
-    console.log('an object', key);
-    return this.setState({ company: {[key]: e.target.value }});
-  };
+  //handleChange(key, e, type) {
+  //  //There must be a better way than passing a string to check against
+  //  if(type != 'obj') {
+  //    return this.setState({ [key]: e.target.value});
+  //  }
+  //  //Find out how to not hardcode "company"
+  //  console.log('an object', key);
+  //  return this.setState({ company: {[key]: e.target.value }});
+  //};
 
   createDeepStateSlice(keys, value) {
+    //use reverse() bc we want to set the value of name before setting name to the
+    //company object
     return keys.slice().reverse().reduce((acc, key, i) => {
       return i === 0 ? { [key]: value } : { [key]: acc }
     }, {});
@@ -35,6 +37,7 @@ class UserList extends React.Component {
       const value = e.target.value;
 
       if (Array.isArray(keys)) {
+        //if keys are an array
         const slice = this.createDeepStateSlice(keys, value);
         this.setState(merge({}, this.state, slice));
       } else {
@@ -58,8 +61,12 @@ class UserList extends React.Component {
       $('#addUserModal').modal('hide');
     };
 
-    const handleNameChange = this.handleChangeFactory('name');
-    const handleCompanyChange = this.handleChangeFactory(['company', 'name']);
+    const safeData = () => {
+      if(!users) {
+        console.log('none');
+      }
+      return users;
+    };
 
     return (
       <div>
@@ -73,11 +80,11 @@ class UserList extends React.Component {
           </button>
         </div>
         <div className="user-list">
-          {users.map(user => {
+          {safeData().map(user => {
             return(
               <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
             );
-          })}
+          })}}
         </div>
         <div className="modal fade" id="addUserModal" tabIndex="-1" role="dialog" aria-labelledby="addUser" aria-hidden="true">
           <div className="modal-dialog" role="document">
@@ -98,7 +105,7 @@ class UserList extends React.Component {
                       id="userName"
                       value={this.props.name}
                       placeholder="Jane Doe"
-                      onChange={handleNameChange} />
+                      onChange={this.handleChangeFactory('name')} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Company</label>
@@ -108,7 +115,7 @@ class UserList extends React.Component {
                       id="companyName"
                       value={company}
                       placeholder="Company Name"
-                      onChange={handleCompanyChange} />
+                      onChange={this.handleChangeFactory(['company', 'name'])} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="companyName">Email</label>
@@ -118,7 +125,7 @@ class UserList extends React.Component {
                       id="email"
                       value={this.props.email}
                       placeholder="example@example.com"
-                      onChange={e => this.handleChange('email', e)} />
+                      onChange={this.handleChangeFactory('email')} />
                   </div>
                 </form>
               </div>
