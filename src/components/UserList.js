@@ -1,6 +1,6 @@
 import React          from 'react';
 import { withRouter } from 'react-router';
-import { merge }      from 'lodash';
+import merge          from 'lodash.merge';
 import User           from './User';
 import usersContainer from './../containers/usersContainer';
 
