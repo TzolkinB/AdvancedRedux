@@ -19,7 +19,6 @@ class User extends React.Component {
     console.log('here')
   }
 
-
   updateButton() {
     this.setState({isEditing: false})
   }
@@ -30,7 +29,6 @@ class User extends React.Component {
     } = this.props;
 
     const handleDelete = user => {
-      console.log('user', user);
       handleDeleteUser(user);
     }
     
