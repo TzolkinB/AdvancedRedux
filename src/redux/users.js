@@ -33,8 +33,11 @@ const usersReducer = (state = initialState, action = {}) => {
         users: [...state.users, action.payload]
       };
     case DELETE_USER:
-      console.log('action', action.id, user.id);
-      //return state.filter(id === action.id
+      return { 
+        ...state,
+        //return all users except where user matches action.payload
+        users: state.users.filter(user => user != action.payload)
+        };
     case CLEAR_USER:
       return { 
         ...state, 
