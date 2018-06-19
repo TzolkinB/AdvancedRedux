@@ -64,6 +64,7 @@ class UserList extends React.Component {
     const safeData = () => {
       if(!users) {
         console.log('none');
+        return;
       }
       return users;
     };

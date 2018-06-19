@@ -25,7 +25,12 @@ const usersReducer = (state = initialState, action = {}) => {
         users: action.payload
       };
     case EDIT_USER:
-      return state.map( user => user.id === action.id ? user: {...user, editing:!user.editing});
+      console.log('edit', action.payload);
+      console.log('state', state);
+      return {
+        ...state,
+        user: action.payload
+      };
     case ADD_USER:
       // state.users is array of all users and action.payload is new user object
       return { 
@@ -96,6 +101,6 @@ export const clearUser = () => {
   return {type: CLEAR_USER };
 }
 
-export const editUser = id => {
-  return {type: EDIT_USER, payload: id};
+export const editUser = user => {
+  return {type: EDIT_USER, payload: user};
 }

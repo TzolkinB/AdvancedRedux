@@ -15,22 +15,40 @@ class User extends React.Component {
     this.setState({isEditing: true})
   }
 
-  handleChange(e){
-    console.log('here')
-  }
-
-  updateButton() {
-    this.setState({isEditing: false})
-  }
-
   render() {
     const {
-      user, handleUpdateUser, handleDeleteUser
+      user, handleUpdateUser, handleDeleteUser,
+      handleEditUser
     } = this.props;
 
     const handleDelete = user => {
       handleDeleteUser(user);
     }
+  
+    const handleUpdate = user => {
+      console.log('state', this.state);
+      handleEditUser(user);
+      this.setState({isEditing: false});
+    }
+
+    const handleChange = (value, key) => {
+      console.log('value', value);
+      console.log('key', key);
+      const newValue = value || e.target.value;
+      return this.setState({ user: {[key]: newValue}});
+      //return this.setState({ company: {[key]: e.target.value }});
+    }
+
+  //const changeHandlerFactory = (e, key) => {
+  //  return (e, value) => {
+  //    e.preventDefault();
+  //    const newValue = value || e.target.value;
+  //    setField({
+  //      field: field.key,
+  //      value: newValue
+  //    });
+  //  }
+  //};
     
     if(this.state.isEditing) {
       return(
@@ -46,10 +64,11 @@ class User extends React.Component {
                   name={user.name}
                   value={user.name}
                   placeholder="Jane Doe"
-                  onChange={this.handleChange} />
+                  onChange={e => handleChange(e.target.value, 'name')} />
               </div>
               <div className="form-group">
-                <label htmlFor="companyName">Company</label>
+        {/*        <label htmlFor="companyName">Company</label>
+
                 <input 
                   type="text"
                   className="form-control"
@@ -57,7 +76,8 @@ class User extends React.Component {
                   name={user.company}
                   value={user.company.name}
                   placeholder="Company Name"
-                  onChange={this.handleChange} />
+                  onChange={e => this.handleChange('com} />
+                  */}
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -68,10 +88,10 @@ class User extends React.Component {
                   name={user.email}
                   value={user.email}
                   placeholder="Email"
-                  onChange={this.handleChange} />
+                  onChange={e => handleChange('email')} />
               </div>
             </form>
-            <button className="btn btn-info btn-raised float-right" onClick={e => this.updateButton()}>Update</button>
+            <button className="btn btn-info btn-raised float-right" onClick={e => handleUpdate(user)}>Update</button>
           </div>
         </div>
       );
