@@ -11,15 +11,20 @@ class User extends React.Component {
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
-  toggleEdit() {
-    this.setState({isEditing: true})
+  toggleEdit(user) {
+    this.setState({
+      isEditing: true,
+      user: user
+    })
   }
 
   render() {
+    console.log('props', this.props.name);
     const {
       user, handleUpdateUser, handleDeleteUser,
-      handleEditUser
+      handleEditUser, users
     } = this.props;
+    console.log('users', users);
 
     const handleDelete = user => {
       handleDeleteUser(user);
@@ -31,11 +36,18 @@ class User extends React.Component {
       this.setState({isEditing: false});
     }
 
-    const handleChange = (value, key) => {
-      console.log('value', value);
-      console.log('key', key);
-      const newValue = value || e.target.value;
-      return this.setState({ user: {[key]: newValue}});
+    const handleChange = e => {
+      console.log('state user', this.state.user);
+      console.log('name', e.target.name);
+      const field = e.target.name;
+      console.log('value', e.target.value);
+      const user = this.state.user;
+      user[field] = e.target.value;
+      return this.setState({user: user});
+
+      //console.log('key', key);
+      //const newValue = value || e.target.value;
+      //return this.setState({ user: {[key]: newValue}});
       //return this.setState({ company: {[key]: e.target.value }});
     }
 
@@ -61,14 +73,13 @@ class User extends React.Component {
                   type="text"
                   className="form-control"
                   id="userName"
-                  name={user.name}
+                  name="name"
                   value={user.name}
                   placeholder="Jane Doe"
-                  onChange={e => handleChange(e.target.value, 'name')} />
+                  onChange={handleChange} />
               </div>
               <div className="form-group">
-        {/*        <label htmlFor="companyName">Company</label>
-
+              <label htmlFor="companyName">Company</label>
                 <input 
                   type="text"
                   className="form-control"
@@ -76,8 +87,7 @@ class User extends React.Component {
                   name={user.company}
                   value={user.company.name}
                   placeholder="Company Name"
-                  onChange={e => this.handleChange('com} />
-                  */}
+                  onChange={e => this.handleChange('company')} />
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -106,7 +116,7 @@ class User extends React.Component {
           <p>Email:&nbsp;
             <span className="text-secondary">{user.email}</span>
           </p>
-          <button className="btn btn-raised btn-info float-right" onClick={e => this.toggleEdit()}>Edit</button>
+          <button className="btn btn-raised btn-info float-right" onClick={e => this.toggleEdit(user)}>Edit</button>
           <button className="btn btn-raised btn-danger float-right mr-2" onClick={e => handleDeleteUser(user)}>Delete</button>
         </div>
       </div>
