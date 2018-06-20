@@ -16,7 +16,32 @@ class User extends React.Component {
       isEditing: true,
       user: user
     })
-  }
+  };
+
+  createDeepStateSlice(field) {
+  //use reverse() bc we want to set the value of name before setting name to the
+  //company object
+    return (
+      field.split(',').slice().reverse().reduce((acc, key, i) => {
+        return i === 0 ? { [key]: value } : { [key]: acc }
+    }, {})
+    );
+  };
+
+    handleChange(e) {
+      const field = e.target.name;
+      const user = this.state.user;
+      
+      if (field.split(',').length === 2) {
+        console.log('value', e.target.value);
+        const slice = this.createDeepStateSlice(field, e.target.value);
+        this.setState(merge({}, this.state, slice));
+    }, {});
+      }else {
+        user[field] = e.target.value;
+        console.log('new', e.target.value);
+        return this.setState({user: user});
+      }
 
   render() {
     const {
@@ -34,20 +59,6 @@ class User extends React.Component {
       this.setState({isEditing: false});
     }
 
-    const handleChange = e => {
-      const field = e.target.name;
-      const user = this.state.user;
-      console.log('field', field);
-      console.log('user', user);
-      
-      console.log(Array.isArray(field));
-      if (Array.isArray(field)) {
-        console.log('slice', field.slice());
-      }else {
-        user[field] = e.target.value;
-        console.log('new', e.target.value);
-        return this.setState({user: user});
-      }
 
       //const newValue = value || e.target.value;
       //return this.setState({ user: {[key]: newValue}});
@@ -76,7 +87,7 @@ class User extends React.Component {
                   type="text"
                   className="form-control"
                   id="companyName"
-                  name={`['company', 'name']`}
+                  name={['company,name']}
                   value={user.company.name}
                   placeholder="Company Name"
                   onChange={handleChange} />
