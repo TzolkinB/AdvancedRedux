@@ -36,6 +36,8 @@ class UserList extends React.Component {
     const handleChange = (e) => {
       const value = e.target.value;
 
+      console.log('keys', keys);
+      console.log('array', Array.isArray(keys));
       if (Array.isArray(keys)) {
         //if keys are an array
         const slice = this.createDeepStateSlice(keys, value);

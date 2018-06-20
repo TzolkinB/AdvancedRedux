@@ -25,8 +25,6 @@ const usersReducer = (state = initialState, action = {}) => {
         users: action.payload
       };
     case EDIT_USER:
-      console.log('edit', action.payload);
-      console.log('reducer state', state);
       return {
         ...state,
         user: action.payload
