@@ -38,16 +38,14 @@ class User extends React.Component {
     
     if (field.split(',').length === 2) {
       const slice = this.createDeepStateSlice(field, value);
-      //console.log('slice', slice); //returns what we want
-      //console.log('l', this.setState(merge({}, user[slice])));
+      console.log('slice', slice); //returns what we want {company: {name: ""}}
+      console.log('l', this.setState(merge({}, user, slice)));
       this.setState(merge({}, this.state.user, slice));
     } else {
       user[field] = value;
-      console.log('new', value);
       return this.setState({user: user});
     }
     console.log('test', user);
-    console.log('test2', this.state.user);
   };
 
   render() {
@@ -60,10 +58,10 @@ class User extends React.Component {
       handleDeleteUser(user);
     }
   
-    const handleUpdate = user => {
-      console.log('state', this.state);
-      console.log('user', user);
-      handleEditUser(user);
+    const handleUpdate = e => {
+      e.preventDefault();
+      console.log('state', this.state); //shows updated company.name but doesn't change in card view
+      handleEditUser(this.state);
       this.setState({isEditing: false});
     }
 
@@ -106,7 +104,7 @@ class User extends React.Component {
                   onChange={this.handleChange} />
               </div>
             </form>
-            <button className="btn btn-info btn-raised float-right" onClick={e => handleUpdate(user)}>Update</button>
+            <button className="btn btn-info btn-raised float-right" onClick={handleUpdate}>Update</button>
           </div>
         </div>
       );

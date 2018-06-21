@@ -39,13 +39,13 @@ class UserList extends React.Component {
       if (Array.isArray(keys)) {
         //if keys are an array
         const slice = this.createDeepStateSlice(keys, value);
+        console.log('here', this.state);
         this.setState(merge({}, this.state, slice));
       } else {
         this.setState({ [keys]: value });
       }
       console.log('tesst', this.state); // for double checking with :eyes:
     }
-
     return handleChange.bind(this);
   }
 
