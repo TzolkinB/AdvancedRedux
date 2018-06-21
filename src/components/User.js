@@ -1,5 +1,6 @@
 import React          from 'react';
 import { withRouter } from 'react-router';
+import merge          from 'lodash.merge';
 import usersContainer from './../containers/usersContainer';
 
 class User extends React.Component {
@@ -9,6 +10,7 @@ class User extends React.Component {
       isEditing: false
     };
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   toggleEdit(user) {
@@ -18,7 +20,8 @@ class User extends React.Component {
     })
   };
 
-  createDeepStateSlice(field) {
+  createDeepStateSlice(field, value) {
+    console.log('value', value);
   //use reverse() bc we want to set the value of name before setting name to the
   //company object
     return (
@@ -28,20 +31,24 @@ class User extends React.Component {
     );
   };
 
-    handleChange(e) {
-      const field = e.target.name;
-      const user = this.state.user;
-      
-      if (field.split(',').length === 2) {
-        console.log('value', e.target.value);
-        const slice = this.createDeepStateSlice(field, e.target.value);
-        this.setState(merge({}, this.state, slice));
-    }, {});
-      }else {
-        user[field] = e.target.value;
-        console.log('new', e.target.value);
-        return this.setState({user: user});
-      }
+  handleChange(e) {
+    const field = e.target.name;
+    const value = e.target.value;
+    const user = this.state.user;
+    
+    if (field.split(',').length === 2) {
+      const slice = this.createDeepStateSlice(field, value);
+      //console.log('slice', slice); //returns what we want
+      //console.log('l', this.setState(merge({}, user[slice])));
+      this.setState(merge({}, this.state.user, slice));
+    } else {
+      user[field] = value;
+      console.log('new', value);
+      return this.setState({user: user});
+    }
+    console.log('test', user);
+    console.log('test2', this.state.user);
+  };
 
   render() {
     const {
@@ -55,14 +62,9 @@ class User extends React.Component {
   
     const handleUpdate = user => {
       console.log('state', this.state);
+      console.log('user', user);
       handleEditUser(user);
       this.setState({isEditing: false});
-    }
-
-
-      //const newValue = value || e.target.value;
-      //return this.setState({ user: {[key]: newValue}});
-      //return this.setState({ company: {[key]: e.target.value }});
     }
 
     if(this.state.isEditing) {
@@ -79,7 +81,7 @@ class User extends React.Component {
                   name="name"
                   value={user.name}
                   placeholder="Jane Doe"
-                  onChange={handleChange} />
+                  onChange={this.handleChange} />
               </div>
               <div className="form-group">
               <label htmlFor="companyName">Company</label>
@@ -90,7 +92,7 @@ class User extends React.Component {
                   name={['company,name']}
                   value={user.company.name}
                   placeholder="Company Name"
-                  onChange={handleChange} />
+                  onChange={this.handleChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -101,7 +103,7 @@ class User extends React.Component {
                   name="email"
                   value={user.email}
                   placeholder="Email"
-                  onChange={handleChange} />
+                  onChange={this.handleChange} />
               </div>
             </form>
             <button className="btn btn-info btn-raised float-right" onClick={e => handleUpdate(user)}>Update</button>

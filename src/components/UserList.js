@@ -36,8 +36,6 @@ class UserList extends React.Component {
     const handleChange = (e) => {
       const value = e.target.value;
 
-      console.log('keys', keys);
-      console.log('array', Array.isArray(keys));
       if (Array.isArray(keys)) {
         //if keys are an array
         const slice = this.createDeepStateSlice(keys, value);
@@ -45,7 +43,7 @@ class UserList extends React.Component {
       } else {
         this.setState({ [keys]: value });
       }
-      console.log(this.state); // for double checking with :eyes:
+      console.log('tesst', this.state); // for double checking with :eyes:
     }
 
     return handleChange.bind(this);
