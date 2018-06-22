@@ -22,8 +22,6 @@ class User extends React.Component {
 
   createDeepStateSlice(field, value) {
     console.log('value', value);
-  //use reverse() bc we want to set the value of name before setting name to the
-  //company object
     return (
       field.split(',').slice().reverse().reduce((acc, key, i) => {
         return i === 0 ? { [key]: value } : { [key]: acc }
@@ -39,16 +37,20 @@ class User extends React.Component {
     if (field.split(',').length === 2) {
       const slice = this.createDeepStateSlice(field, value);
       console.log('slice', slice); //returns what we want {company: {name: ""}}
-      console.log('l', this.setState(merge({}, user, slice)));
-      this.setState(merge({}, this.state.user, slice));
+      console.log('slice2', this.state);
+    
+      //console.log('k', user.company.name);
+      //this.setState(merge({}, this.state.user, {user: slice}));
+      this.setState({user: user});
     } else {
       user[field] = value;
-      return this.setState({user: user});
+      this.setState({user: user});
     }
     console.log('test', user);
   };
 
   render() {
+    console.log('l', this.state);
     const {
       user, handleUpdateUser, handleDeleteUser,
       handleEditUser, users
