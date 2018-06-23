@@ -24,7 +24,14 @@ class User extends React.Component {
   }
 
   render() {
-    const {user, handleUpdateUser} = this.props;
+    const {
+      user, handleUpdateUser, handleDeleteUser
+    } = this.props;
+
+    const handleDelete = user => {
+      handleDeleteUser(user);
+    }
+    
     if(this.state.isEditing) {
       return(
         <div className="card m-2" key={user.id}>
@@ -80,6 +87,7 @@ class User extends React.Component {
             <span className="text-secondary">{user.email}</span>
           </p>
           <button className="btn btn-raised btn-info float-right" onClick={e => this.toggleEdit()}>Edit</button>
+          <button className="btn btn-raised btn-danger float-right mr-2" onClick={e => handleDeleteUser(user)}>Delete</button>
         </div>
       </div>
     );

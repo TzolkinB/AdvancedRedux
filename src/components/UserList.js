@@ -84,7 +84,7 @@ class UserList extends React.Component {
             return(
               <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
             );
-          })}}
+          })}
         </div>
         <div className="modal fade" id="addUserModal" tabIndex="-1" role="dialog" aria-labelledby="addUser" aria-hidden="true">
           <div className="modal-dialog" role="document">
