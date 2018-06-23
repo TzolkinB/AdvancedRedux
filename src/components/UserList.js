@@ -39,23 +39,26 @@ class UserList extends React.Component {
       if (Array.isArray(keys)) {
         //if keys are an array
         const slice = this.createDeepStateSlice(keys, value);
+        console.log('here', this.state);
+        console.log('here2', slice);
         this.setState(merge({}, this.state, slice));
       } else {
         this.setState({ [keys]: value });
       }
-      console.log(this.state); // for double checking with :eyes:
+      console.log('tesst', this.state); // for double checking with :eyes:
     }
-
     return handleChange.bind(this);
   }
 
   render() {
+    console.log('d', this.state);
     const {
       users: {users}, handleUpdateUser, handleAddUser,
       clearUser, company
     } = this.props;
 
     const handleSave = e => {
+      // this.state is only what has changed
       e.preventDefault();
       handleAddUser(this.state);
       $('#addUserModal').modal('hide');
@@ -64,6 +67,7 @@ class UserList extends React.Component {
     const safeData = () => {
       if(!users) {
         console.log('none');
+        return;
       }
       return users;
     };
