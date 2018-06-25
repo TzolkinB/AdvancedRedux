@@ -39,8 +39,7 @@ class UserList extends React.Component {
       if (Array.isArray(keys)) {
         //if keys are an array
         const slice = this.createDeepStateSlice(keys, value);
-        console.log('here', this.state);
-        console.log('here2', slice);
+        console.log('here', merge({}, this.state, slice));
         this.setState(merge({}, this.state, slice));
       } else {
         this.setState({ [keys]: value });
@@ -51,9 +50,9 @@ class UserList extends React.Component {
   }
 
   render() {
-    console.log('d', this.state);
+    console.log('d', this.props);
     const {
-      users: {users}, handleUpdateUser, handleAddUser,
+      users: {all}, handleUpdateUser, handleAddUser,
       clearUser, company
     } = this.props;
 
@@ -65,11 +64,11 @@ class UserList extends React.Component {
     };
 
     const safeData = () => {
-      if(!users) {
+      if(!all) {
         console.log('none');
-        return;
+        return [];
       }
-      return users;
+      return all;
     };
 
     return (
@@ -86,7 +85,7 @@ class UserList extends React.Component {
         <div className="user-list">
           {safeData().map(user => {
             return(
-              <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
+              <User key={user.id} users={all} user={user} handleUpdateUser={handleUpdateUser} />
             );
           })}
         </div>

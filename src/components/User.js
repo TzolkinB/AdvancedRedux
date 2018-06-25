@@ -14,9 +14,10 @@ class User extends React.Component {
   }
 
   toggleEdit(user) {
+    console.log('k', user);
     this.setState({
       isEditing: true,
-      user: user
+      user
     })
   };
 
@@ -37,16 +38,17 @@ class User extends React.Component {
     if (field.split(',').length === 2) {
       const slice = this.createDeepStateSlice(field, value);
       console.log('slice', slice); //returns what we want {company: {name: ""}}
-      console.log('slice2', this.state);
     
       //console.log('k', user.company.name);
-      //this.setState(merge({}, this.state.user, {user: slice}));
-      this.setState({user: user});
+      //const that = merge({}, this.state, {user: slice});
+      console.log('here', merge({}, this.state, slice));
+      console.log('here2', merge({}, this.state.user, slice));
+      this.setState(merge({}, this.state.user, slice));
     } else {
       user[field] = value;
       this.setState({user: user});
     }
-    console.log('test', user);
+    console.log('test', this.state);
   };
 
   render() {
