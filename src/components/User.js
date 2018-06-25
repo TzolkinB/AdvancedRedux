@@ -14,20 +14,17 @@ class User extends React.Component {
   }
 
   toggleEdit(user) {
-    console.log('k', user);
+    console.log('user', user);
     this.setState({
       isEditing: true,
-      user
+      user: user
     })
   };
 
   createDeepStateSlice(field, value) {
-    console.log('value', value);
-    return (
-      field.split(',').slice().reverse().reduce((acc, key, i) => {
+    return field.split(',').slice().reverse().reduce((acc, key, i) => {
         return i === 0 ? { [key]: value } : { [key]: acc }
-    }, {})
-    );
+    }, {});
   };
 
   handleChange(e) {
@@ -37,22 +34,20 @@ class User extends React.Component {
     
     if (field.split(',').length === 2) {
       const slice = this.createDeepStateSlice(field, value);
-      console.log('slice', slice); //returns what we want {company: {name: ""}}
+      //console.log('slice', slice); //returns what we want, {company: {name: "..."}}
     
-      //console.log('k', user.company.name);
-      //const that = merge({}, this.state, {user: slice});
-      console.log('here', merge({}, this.state, slice));
-      console.log('here2', merge({}, this.state.user, slice));
-      this.setState(merge({}, this.state.user, slice));
+      const that = merge({}, user, slice);
+      console.log('li', {user: that}); // { user: {...}} w/ change to company but 'test' state is not updated
+      this.setState({user: that});
+      console.log('testing', this.state); //company.name is not updated
     } else {
       user[field] = value;
-      this.setState({user: user});
+      this.setState({user: user}); // { user: {...} }
     }
-    console.log('test', this.state);
+    console.log('test', this.state); // {isEditing, user}
   };
 
   render() {
-    console.log('l', this.state);
     const {
       user, handleUpdateUser, handleDeleteUser,
       handleEditUser, users

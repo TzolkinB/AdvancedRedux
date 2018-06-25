@@ -25,8 +25,7 @@ class UserList extends React.Component {
   //};
 
   createDeepStateSlice(keys, value) {
-    //use reverse() bc we want to set the value of name before setting name to the
-    //company object
+    //use reverse() bc want to set value of name before setting name to company object
     return keys.slice().reverse().reduce((acc, key, i) => {
       return i === 0 ? { [key]: value } : { [key]: acc }
     }, {});
@@ -50,7 +49,6 @@ class UserList extends React.Component {
   }
 
   render() {
-    console.log('d', this.props);
     const {
       users: {all}, handleUpdateUser, handleAddUser,
       clearUser, company

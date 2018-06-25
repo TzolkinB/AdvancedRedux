@@ -27,7 +27,7 @@ const usersReducer = (state = initialState, action = {}) => {
     case EDIT_USER:
       return {
         ...state,
-        user: action.payload
+        ...action.payload
       };
     case ADD_USER:
       // state.all is array of all users and action.payload is new user object
@@ -100,6 +100,6 @@ export const clearUser = () => {
 }
 
 export const editUser = user => {
-  console.log('payload', user);
+  console.log('payload', user); //company.name updated correctly
   return {type: EDIT_USER, payload: user};
 }
