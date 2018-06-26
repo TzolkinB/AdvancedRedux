@@ -1,7 +1,7 @@
 {
   "name": "advanced-redux",
   "version": "0.0.1",
-  "description": "Advanced Redux tutorial by Stephen Grider on Udemy",
+  "description": "Based on Advanced Redux tutorial by Stephen Grider on Udemy",
   "main": "app.js",
   "repository": "git@github.com:TzolkinB/AdvancedRedux.git",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "kb",
+  "author": "Kim Bell",
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-cli": "^6.26.0",
