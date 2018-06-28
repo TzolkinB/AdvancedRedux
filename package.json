@@ -8,6 +8,8 @@
     "start": "webpack-dev-server --open",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
+    "build": "webpack",
+    "deploy": "firebase deploy"
   },
   "author": "Kim Bell",
   "license": "UNLICENSED",
@@ -33,6 +35,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "firebase": "^5.1.0",
     "lodash.merge": "^4.6.1",
     "react": "16.3.2",
     "react-dom": "16.3.2",
