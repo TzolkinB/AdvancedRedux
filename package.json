@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
     "build": "webpack",
     "deploy": "firebase deploy"
   },

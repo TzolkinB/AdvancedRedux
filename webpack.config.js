@@ -13,7 +13,7 @@ module.exports = {
   watch: true,
   entry: './src/app.js',
   output: {
-    path: paths.DIST,
+    path: paths.PUB,
     publicPath: '/',
     filename: 'bundle.js'
   },
