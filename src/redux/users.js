@@ -1,3 +1,6 @@
+import { database } from './../firebase';
+const usersRef = database.ref('users');
+
 const initialState = {
   users: [],
   user: {
@@ -63,18 +66,26 @@ export const fetchUsers = () => {
       .then( response => response.json(),
         error => console.log('An error occurred.', error)
       )
-      .then(results => { 
-        dispatch(setUsers(results));
-      })
+      //.then(results => { 
+      //  dispatch(setUsers(results));
+      //})
+      .usersRef.on("value", snapshot => {
+        dispatch(setUsers(snapshot.val()));
+      });
   }
 }
 
 export const createUser = user => {
   //Could just use "addUser" in component but this works too
   return (dispatch) => {
-    dispatch(addUser(user));
-  }
+    //dispatch(addUser(user));
+    usersRef.on('child_added', (snapshot) => {
+      dispatch(addUser(snapshot.val()));
+    });
+  //usersRef.push().set(user);
+  };
 }
+
 
 export const setUsers = users => {
   return {type: SET_USERS, payload: users};
