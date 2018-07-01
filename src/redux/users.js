@@ -1,5 +1,5 @@
 import { database } from './../firebase';
-const usersRef = database.ref('users');
+const usersRef = database.ref('users/');
 
 const initialState = {
   users: [],
@@ -69,9 +69,9 @@ export const fetchUsers = () => {
       //.then(results => { 
       //  dispatch(setUsers(results));
       //})
-      .usersRef.on("value", snapshot => {
+      .then( usersRef.on("value", snapshot => {
         dispatch(setUsers(snapshot.val()));
-      });
+      }));
   }
 }
 
@@ -79,7 +79,7 @@ export const createUser = user => {
   //Could just use "addUser" in component but this works too
   return (dispatch) => {
     //dispatch(addUser(user));
-    usersRef.on('child_added', (snapshot) => {
+    usersRef.on('value', (snapshot) => {
       dispatch(addUser(snapshot.val()));
     });
   //usersRef.push().set(user);

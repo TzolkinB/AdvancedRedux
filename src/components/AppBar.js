@@ -40,7 +40,7 @@ class AppBar extends React.Component {
               <Link className="nav-link" to="/resources">Resources</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/users">Users</Link>
+              <Link className="nav-link" to="/users">Usersss</Link>
             </li>
           </ul>
           <span className="navbar-text">
