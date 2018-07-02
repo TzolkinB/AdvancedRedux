@@ -1,12 +1,13 @@
 import React        from 'react';
 import { render }   from 'react-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import {
   BrowserRouter, Route, Switch,
   Redirect
 } from 'react-router-dom';
 
-import store from './redux/store';
+import { persistor, store } from './redux/store';
 import 'CSS/style.css';
 
 import requireAuth from './components/require_authentication';
@@ -36,8 +37,10 @@ const App = () => (
 
 render(
   <Provider store={store}>
-    <BrowserRouter basename="/">
-      <App />
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter basename="/">
+        <App />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
   , document.getElementById('redux-app'));
