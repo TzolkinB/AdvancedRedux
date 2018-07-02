@@ -1,7 +1,6 @@
 import React          from 'react';
 import { withRouter } from 'react-router';
 import merge          from 'lodash.merge';
-import { database }   from './../firebase';
 import User           from './User';
 import usersContainer from './../containers/usersContainer';
 
@@ -11,8 +10,6 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    database.ref().on('value', () => {
-      console.log('data changed')});
     const {handleGetUsers} = this.props;
     handleGetUsers();
   };
