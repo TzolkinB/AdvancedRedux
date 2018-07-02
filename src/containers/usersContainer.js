@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handleGetUsers: () => dispatch(fetchUsers()),
-    handleEditUser: id => dispatch(editUser(id)),
+    handleEditUser: user => dispatch(editUser(user)),
     handleAddUser: user => dispatch(createUser(user)),
     handleDeleteUser: user => dispatch(deleteUser(user)),
     clearUser: () => dispatch(clearUser()),

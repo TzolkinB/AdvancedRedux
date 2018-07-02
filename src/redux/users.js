@@ -1,5 +1,5 @@
 const initialState = {
-  users: [],
+  all: [],
   user: {
     name: '',
     email: '',
@@ -22,21 +22,24 @@ const usersReducer = (state = initialState, action = {}) => {
     case SET_USERS:
       return { 
         ...state, 
-        users: action.payload
+        all: action.payload
       };
     case EDIT_USER:
-      return state.map( user => user.id === action.id ? user: {...user, editing:!user.editing});
+      return {
+        ...state,
+        ...action.payload
+      };
     case ADD_USER:
-      // state.users is array of all users and action.payload is new user object
+      // state.all is array of all users and action.payload is new user object
       return { 
         ...state, 
-        users: [...state.users, action.payload]
+        all: [...state.all, action.payload]
       };
     case DELETE_USER:
       return { 
         ...state,
         //return all users except where user matches action.payload
-        users: state.users.filter(user => user != action.payload)
+        all: state.all.filter(user => user != action.payload)
         };
     case CLEAR_USER:
       return { 
@@ -97,6 +100,7 @@ export const clearUser = () => {
   return {type: CLEAR_USER };
 }
 
-export const editUser = id => {
-  return {type: EDIT_USER, payload: id};
+export const editUser = user => {
+  console.log('payload', user); //company.name updated correctly
+  return {type: EDIT_USER, payload: user};
 }

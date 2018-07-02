@@ -25,8 +25,7 @@ class UserList extends React.Component {
   //};
 
   createDeepStateSlice(keys, value) {
-    //use reverse() bc we want to set the value of name before setting name to the
-    //company object
+    //use reverse() bc want to set value of name before setting name to company object
     return keys.slice().reverse().reduce((acc, key, i) => {
       return i === 0 ? { [key]: value } : { [key]: acc }
     }, {});
@@ -43,29 +42,30 @@ class UserList extends React.Component {
       } else {
         this.setState({ [keys]: value });
       }
-      console.log(this.state); // for double checking with :eyes:
+      console.log('test', this.state); // for double checking with :eyes:
     }
-
     return handleChange.bind(this);
   }
 
   render() {
     const {
-      users: {users}, handleUpdateUser, handleAddUser,
+      users: {all}, handleUpdateUser, handleAddUser,
       clearUser, company
     } = this.props;
 
     const handleSave = e => {
+      // this.state is only what has changed
       e.preventDefault();
       handleAddUser(this.state);
       $('#addUserModal').modal('hide');
     };
 
     const safeData = () => {
-      if(!users) {
+      if(!all) {
         console.log('none');
+        return [];
       }
-      return users;
+      return all;
     };
 
     return (
@@ -82,7 +82,7 @@ class UserList extends React.Component {
         <div className="user-list">
           {safeData().map(user => {
             return(
-              <User key={user.id} users={users} user={user} handleUpdateUser={handleUpdateUser} />
+              <User key={user.id} users={all} user={user} handleUpdateUser={handleUpdateUser} />
             );
           })}
         </div>
